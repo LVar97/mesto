@@ -1,0 +1,18 @@
+.profile__subtitle{
+	align-self: end;
+	grid-area: subtitle;
+	grid-row: 2;
+	grid-column: 1 / 2;
+	margin: 0;
+
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+@media all and (max-width: 895px){
+	.profile__subtitle{
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
