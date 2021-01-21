@@ -7,9 +7,21 @@
 	<title>Жак-Ив Кусто</title>
 </head>
 <body class="page">
+
+	<section class="form">
+		<button class="form__close"></button>
+		<div class="popup">
+			<form class="popup__container">
+				<h3 class="popup__title">Редактировать профиль</h3>
+				<input type="text" value="Жак-Ив Кусто" class="popup__field-name">
+				<input type="text" value="Исследователь океана" class="popup__field-work">
+				<button class="btn-submit" type="submit">Сохранить</button>
+			</form>
+		</div>
+	</section>
+
 	<header class="header">
 		<div class="header__logo"></div>
-		<!-- <img src="image/logo__header.svg" alt="" class="header__logo"> -->
 		<div class="header__line"></div>
 	</header>
 	<main class="content">
@@ -29,7 +41,7 @@
 				<img src="image/aquaman.jpg" alt="Карачаевск" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Карачаево-Черкессия</h2>
-					<button class="element__btn-like"></button>
+					<button class="btn element__btn-like"></button>
 				</div>
 			</div>
 			<div class="element">

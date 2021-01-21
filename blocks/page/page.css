@@ -1,6 +1,7 @@
 .page{
 	max-width: 1280px;
-	margin: 45px auto 0;
+	margin: 0 auto;
+	position: relative;
 	
 	background-color: #000000;
 	color: #fff;
@@ -21,6 +22,6 @@
 @media all and (max-width: 895px){
 	.page{
 		max-width: 320px;
-		margin: 28px auto 0;
+		margin: 0 auto;
 	}
 }

@@ -15,6 +15,11 @@
 	background-position: center;
 }
 
+.profile__btn-edit:hover{
+	opacity: 0.6;
+	cursor: pointer;
+}
+
 @media all and (max-width: 895px){
 	.profile__btn-edit{
 		width: 18px;

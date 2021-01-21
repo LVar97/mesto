@@ -1,0 +1,21 @@
+.btn-submit{
+	width: 358px;
+	min-height: 50px;
+	background: #000000;
+	border-radius: 2px;
+	color: #FFFFFF;
+	margin: 0 auto;
+	border: none;
+}
+
+.btn-submit:hover{
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+@media all and (max-width: 895px){
+	.btn-submit{
+		width: 238px;
+		min-height: 46px;
+	}
+}

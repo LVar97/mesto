@@ -14,6 +14,11 @@
 	color: #fff;
 }
 
+.profile__btn-add:hover{
+	opacity: 0.6;
+	cursor: pointer;
+}
+
 @media all and (max-width: 895px){
 	.profile__btn-add{
 		width: 285px;
