@@ -1,5 +1,4 @@
 .profile__btn-edit{
-	align-self: end;
 	grid-area: btn;
 	grid-row: 1;
 	grid-column: 2;
