@@ -8,21 +8,8 @@
 </head>
 <body class="page">
 
-	<section class="form">
-		<button class="form__close"></button>
-		<div class="popup">
-			<form class="popup__container">
-				<h3 class="popup__title">Редактировать профиль</h3>
-				<input type="text" value="Жак-Ив Кусто" class="popup__field-name">
-				<input type="text" value="Исследователь океана" class="popup__field-work">
-				<button class="btn-submit" type="submit">Сохранить</button>
-			</form>
-		</div>
-	</section>
-
 	<header class="header">
 		<div class="header__logo"></div>
-		<div class="header__line"></div>
 	</header>
 	<main class="content">
 
@@ -31,59 +18,75 @@
 			<div class="profile__info">
 				<h1 class="profile__title">Жак-Ив Кусто</h1>
 				<p class="profile__subtitle">Исследователь океана</p>
-				<button class="profile__btn-edit"></button>
+				<button class="profile__btn-edit" type="button"></button>
 			</div>
-			<button class="profile__btn-add"></button>
+			<button class="profile__btn-add" type="button"></button>
 		</section>
 
 		<section class="elements">
-			<div class="element">
-				<img src="image/aquaman.jpg" alt="Дайвинг" class="element__image">
+			<ul class="element">
+				<img src="image/aquaman.jpg" alt="Дайвер всплывает на поверхность" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Карачаево-Черкессия</h2>
-					<button class="btn element__btn-like"></button>
+					<button class="element__btn-like" aria-label="like" type="button"></button>
 				</div>
-			</div>
-			<div class="element">
-				<img src="image/vik.jpg" alt="Ракушка" class="element__image">
+			</ul>
+			<ul class="element">
+				<img src="image/vik.jpg" alt="Белая ракушка на черном песке" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Муривай, Новая Зеландия</h2>
-					<button class="element__btn-like"></button>
+					<button class="element__btn-like" aria-label="like" type="button"></button>
 				</div>
-			</div>
-			<div class="element">
-				<img src="image/portu.jpg" alt="Серфинг" class="element__image">
+			</ul>
+			<ul class="element">
+				<img src="image/portu.jpg" alt="Девушка бежит к воде с серфом в руках" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Португалия</h2>
-					<button class="element__btn-like"></button>
+					<button class="element__btn-like" aria-label="like" type="button"></button>
 				</div>
-			</div>
-			<div class="element">
+			</ul>
+			<ul class="element">
 				<img src="image/postdam.jpg" alt="Кораллы" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Потсдам, Германия</h2>
-					<button class="element__btn-like"></button>
+					<button class="element__btn-like" aria-label="like" type="button"></button>
 				</div>
-			</div>
-			<div class="element">
-				<img src="image/iceland.jpg" alt="Исландия" class="element__image">
+			</ul>
+			<ul class="element">
+				<img src="image/iceland.jpg" alt="Рука, держащая компас, на заднем фоне пляж" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Исландия</h2>
-					<button class="element__btn-like"></button>
+					<button class="element__btn-like" aria-label="like" type="button"></button>
 				</div>
-			</div>
-			<div class="element">
+			</ul>
+			<ul class="element">
 				<img src="image/manta.jpg" alt="Гиганская манта" class="element__image">
 				<div class="element__heading">
 					<h2 class="element__title">Атлантикa</h2>
-					<button class="element__btn-like"></button>
+					<button class="element__btn-like" aria-label="like" type="button"></button>
 				</div>
-			</div>
+			</ul>
 		</section>
 	</main>
 	<footer class="footer">
 		<p class="footer__author">&copy; 2020. Карелина Варвара</p>
 	</footer>
-	<script src="script.js"></script>
+
+	
+	<div class="popup">
+		<div class="popup__container">
+			<h3 class="popup__title">Редактировать профиль</h3>
+			<form method="POST" name="popupForm" class="popup__form">
+				<input type="text" placeholder="Имя" name="namePerson" class="popup__field-name">
+				<input type="text" placeholder="О себе" name="jobPerson" class="popup__field-work">
+				<button class="btn-submit" type="submit">Сохранить</button>
+			</form>
+			<button class="popup__close" aria-label="Close" ype="button"></button>
+		</div>
+	</div>
+	
+
+
+	<script src="scripts/script.js"></script>
 </body>
 </html>

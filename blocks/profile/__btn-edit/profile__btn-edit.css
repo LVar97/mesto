@@ -12,6 +12,7 @@
 	background-image: url('../../../image/pencil.svg');
 	background-repeat: no-repeat;
 	background-position: center;
+	transition: opacity 1s ease;
 }
 
 .profile__btn-edit:hover{

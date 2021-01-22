@@ -12,6 +12,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	color: #fff;
+	transition: opacity 1s ease;
 }
 
 .profile__btn-add:hover{
@@ -22,7 +23,7 @@
 @media all and (max-width: 895px){
 	.profile__btn-add{
 		width: 285px;
-		margin: 36px auto;
-		
+		margin: 36px auto 0;
+		background-size: 16px 16px;
 	}
 }

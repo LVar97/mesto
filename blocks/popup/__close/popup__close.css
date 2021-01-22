@@ -1,4 +1,4 @@
-.form__close{
+.popup__close{
 	background-image: url('../../../image/Close\ Icon.svg');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -6,24 +6,26 @@
 	background-color: #000;
 	border: none;
 	position: absolute;
-	top: 155px;
-	right: 385px;
+	top: -40px;
+	left: 430px;
 	width: 40px;
 	height: 40px;
 	z-index: 4;
 	padding: 0;
+	transition: opacity 1s ease;
 }
 
-.form__close:hover{
+.popup__close:hover{
 	opacity: 0.6;
 	cursor: pointer;
 }
 
 @media all and (max-width: 895px){
-	.form__close{
-		top: 85px;
-		right: 19px;
+	.popup__close{
+		top: -40px;
+		left: 252px;
 		width: 26px;
 		height: 26px;
+		background-size: 26px 26px;
 	}
 }

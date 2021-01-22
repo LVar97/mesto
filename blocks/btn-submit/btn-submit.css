@@ -6,6 +6,7 @@
 	color: #FFFFFF;
 	margin: 0 auto;
 	border: none;
+	transition: opacity 1s ease;
 }
 
 .btn-submit:hover{
