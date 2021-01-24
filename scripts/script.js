@@ -10,9 +10,9 @@ let profSubitle = document.querySelector('.profile__subtitle');
 
 
 function showPopup(){
-	windowPopup.classList.add('popup_opened');
 	nameInput.value = profTitle.textContent; 
 	jobInput.value = profSubitle.textContent; 
+	windowPopup.classList.add('popup_opened');
 }
 
 function closePopup(){
