@@ -3,7 +3,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	color: #fff;
-	background-color: #000;
+	background-color: rgba(0, 0, 0, 0);
 	border: none;
 	position: absolute;
 	top: -40px;
@@ -22,7 +22,6 @@
 
 @media all and (max-width: 895px){
 	.popup__close{
-		top: -40px;
 		left: 252px;
 		width: 26px;
 		height: 26px;

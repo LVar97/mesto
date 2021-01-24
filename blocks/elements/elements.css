@@ -8,11 +8,11 @@
 	grid-auto-rows: 361px;
 
 	justify-content: center;
-	
-	/* -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-	box-sizing: border-box; */
 
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
 	margin: 0 auto;
 }
 
