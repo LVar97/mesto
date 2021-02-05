@@ -80,13 +80,13 @@ initialCards.forEach(function (element) {
 
   cardElement.querySelector('.element__image').addEventListener('click', function(){
     cardsPopup.classList.add('popup_opened');
-    cardsPopup.querySelector('.popup__close').classList.add('popup__close_cards');
+    cardsPopup.querySelector('.btn-close').classList.add('popup__close_cards');
     cardsPopup.querySelector('.cardspop__image').src = element.link;
     cardsPopup.querySelector('.cardspop__title').textContent = element.name;
     
   });
   
-  cardsPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(cardsPopup)});
+  cardsPopup.querySelector('.btn-close').addEventListener('click', () => {closePopup(cardsPopup)});
 
   listElement.append(cardElement);
 });
@@ -113,11 +113,11 @@ function addCards (placeValue, linkValue) {
     cardsPopup.querySelector('.cardspop__title').textContent = placeValue;
     
     cardsPopup.classList.add('popup_opened');
-    cardsPopup.querySelector('.popup__close').classList.add('popup__close_cards');
+    cardsPopup.querySelector('.btn-close').classList.add('popup__close_cards');
     
   });
 
-  cardsPopup.querySelector('.popup__close').addEventListener('click', closePopup(cardsPopup));
+  cardsPopup.querySelector('.btn-close').addEventListener('click', closePopup(cardsPopup));
   listElement.prepend(cardElement); 
 	closePopup(addPopup);
 }
