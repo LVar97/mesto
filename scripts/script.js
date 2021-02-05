@@ -82,6 +82,8 @@ initialCards.forEach(function (element) {
     cardsPopup.classList.add('popup_opened');
     cardsPopup.querySelector('.popup__close').classList.add('popup__close_cards');
     cardsPopup.querySelector('.cardspop__image').src = element.link;
+    cardsPopup.querySelector('.cardspop__title').textContent = element.name;
+    
   });
   
   cardsPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(cardsPopup)});
@@ -108,6 +110,8 @@ function addCards (placeValue, linkValue) {
 
   cardElement.querySelector('.element__image').addEventListener('click', function(){
     cardsPopup.querySelector('.cardspop__image').src = linkValue;
+    cardsPopup.querySelector('.cardspop__title').textContent = placeValue;
+    
     cardsPopup.classList.add('popup_opened');
     cardsPopup.querySelector('.popup__close').classList.add('popup__close_cards');
     
