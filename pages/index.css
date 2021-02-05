@@ -28,7 +28,7 @@
 @import url('../blocks/cardspop/__title/cardspop__title.css');
 
 @import url('../blocks/popup/popup.css');
-@import url('../blocks/add-popup/add-popup.css');
+@import url('../blocks/popup/_add/popup_add.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/popup/__close/_cards/popup__close_cards.css');

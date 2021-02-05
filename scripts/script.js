@@ -8,7 +8,7 @@ const profTitle = document.querySelector('.profile__title');
 const profSubitle = document.querySelector('.profile__subtitle');
 
 const addButton = document.querySelector('.profile__btn-add');
-const addPopup = document.querySelector('.add-popup');
+const addPopup = document.querySelector('.popup_add');
 
 const cardsPopup = document.querySelector('.cardspop');
 const imgElem = document.querySelector('.element__image');
