@@ -14,7 +14,3 @@
 	cursor: pointer;
 }
 
-.element__btn-like:active{
-	background-image: url('../../../image/black-like.svg');
-	opacity: 1;
-}

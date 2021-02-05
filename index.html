@@ -25,15 +25,17 @@
 
 		<section class="elements">
 			<ul class="elements__list">
-				<li class="element">
+				<!-- <li class="element">
 					<img src="image/aquaman.jpg" alt="Дайвер всплывает на поверхность" class="element__image">
+					<button class="element__btn-delete" aria-label="delete" type="button"></button>
 					<div class="element__heading">
-						<h2 class="element__title">Карачаево-Черкессия</h2>
+						<h2 class="element__title">Мальта</h2>
 						<button class="element__btn-like" aria-label="like" type="button"></button>
 					</div>
 				</li>
 				<li class="element">
 					<img src="image/vik.jpg" alt="Белая ракушка на черном песке" class="element__image">
+					<button class="element__btn-delete" aria-label="delete" type="button"></button>
 					<div class="element__heading">
 						<h2 class="element__title">Муривай, Новая Зеландия</h2>
 						<button class="element__btn-like" aria-label="like" type="button"></button>
@@ -41,6 +43,7 @@
 				</li>
 				<li class="element">
 					<img src="image/portu.jpg" alt="Девушка бежит к воде с серфом в руках" class="element__image">
+					<button class="element__btn-delete" aria-label="delete" type="button"></button>
 					<div class="element__heading">
 						<h2 class="element__title">Португалия</h2>
 						<button class="element__btn-like" aria-label="like" type="button"></button>
@@ -48,6 +51,7 @@
 				</li>
 				<li class="element">
 					<img src="image/postdam.jpg" alt="Кораллы" class="element__image">
+					<button class="element__btn-delete" aria-label="delete" type="button"></button>
 					<div class="element__heading">
 						<h2 class="element__title">Потсдам, Германия</h2>
 						<button class="element__btn-like" aria-label="like" type="button"></button>
@@ -55,6 +59,7 @@
 				</li>
 				<li class="element">
 					<img src="image/iceland.jpg" alt="Рука, держащая компас, на заднем фоне пляж" class="element__image">
+					<button class="element__btn-delete" aria-label="delete" type="button"></button>
 					<div class="element__heading">
 						<h2 class="element__title">Исландия</h2>
 						<button class="element__btn-like" aria-label="like" type="button"></button>
@@ -62,11 +67,12 @@
 				</li>
 				<li class="element">
 					<img src="image/manta.jpg" alt="Гиганская манта" class="element__image">
+					<button class="element__btn-delete" aria-label="delete" type="button"></button>
 					<div class="element__heading">
 						<h2 class="element__title">Атлантикa</h2>
 						<button class="element__btn-like" aria-label="like" type="button"></button>
 					</div>
-				</li>
+				</li> -->
 			</ul>	
 		</section>
 		
@@ -84,11 +90,40 @@
 				<input type="text" placeholder="О себе" name="jobPerson" class="popup__field-work">
 				<button class="btn-submit" type="submit">Сохранить</button>
 			</form>
-			<button class="popup__close" aria-label="Close" type="button"></button>
+			<button class="popup__close" aria-label="Close" type="button" ></button>
 		</div>
 	</div>
 	
+	<div class="add-popup">
+		<div class="popup__container">
+			<h3 class="popup__title_add">Новое место</h3>
+			<form method="POST" name="popupFormAdd" class="popup__form">
+				<input type="text" placeholder="Название" name="namePlace" class="popup__field-place">
+				<input type="text" placeholder="Ссылка на картинку" name="imgLink" class="popup__field-link">
+				<button class="btn-submit" type="submit">Сохранить</button>
+			</form>
+			<button class="popup__close" aria-label="Close" type="button" ></button>
+		</div>
+	</div>
 
+	<template id="card">
+		<li class="element">
+			<img src="" alt="фотография с места события" class="element__image">
+			<button class="element__btn-delete" aria-label="delete" type="button"></button>
+			<div class="element__heading">
+				<h2 class="element__title"></h2>
+				<button class="element__btn-like" aria-label="like" type="button"></button>
+			</div>
+		</li>
+	</template>
+
+	<div class="cardspop">
+		<div class="cardspop__container">
+			<button class="popup__close" aria-label="Close" type="button" ></button>
+			<img src="" alt="фотография с места события" class="cardspop__image">
+			<h2 class="cardspop__title">Aquamen</h2>
+		</div>
+	</div>
 
 	<script src="scripts/script.js"></script>
 </body>

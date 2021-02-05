@@ -1,0 +1,4 @@
+.element__btn-like_active{
+	background-image: url('https://code.s3.yandex.net/web-code/dom/heart-filled.svg');
+	opacity: 1;
+}

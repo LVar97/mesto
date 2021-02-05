@@ -1,4 +1,4 @@
-.popup{
+.add-popup{
 	/* display: none; */
 	display: flex;
 	position: fixed;
@@ -13,6 +13,7 @@
 	align-items: center;
 
 	visibility: hidden;
-	opacity: 0;
+  opacity: 0;
 	transition: opacity 1s, visibility 0s 1s;
+	
 }
