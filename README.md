@@ -11,4 +11,5 @@
 Grid
 JS
 Адаптивная верстка
+
 Ссылка на проект: https://lvar97.github.io/mesto/index.html
