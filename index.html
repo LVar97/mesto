@@ -25,54 +25,7 @@
 
 		<section class="elements">
 			<ul class="elements__list">
-				<!-- <li class="element">
-					<img src="image/aquaman.jpg" alt="Дайвер всплывает на поверхность" class="element__image">
-					<button class="element__btn-delete" aria-label="delete" type="button"></button>
-					<div class="element__heading">
-						<h2 class="element__title">Мальта</h2>
-						<button class="element__btn-like" aria-label="like" type="button"></button>
-					</div>
-				</li>
-				<li class="element">
-					<img src="image/vik.jpg" alt="Белая ракушка на черном песке" class="element__image">
-					<button class="element__btn-delete" aria-label="delete" type="button"></button>
-					<div class="element__heading">
-						<h2 class="element__title">Муривай, Новая Зеландия</h2>
-						<button class="element__btn-like" aria-label="like" type="button"></button>
-					</div>
-				</li>
-				<li class="element">
-					<img src="image/portu.jpg" alt="Девушка бежит к воде с серфом в руках" class="element__image">
-					<button class="element__btn-delete" aria-label="delete" type="button"></button>
-					<div class="element__heading">
-						<h2 class="element__title">Португалия</h2>
-						<button class="element__btn-like" aria-label="like" type="button"></button>
-					</div>
-				</li>
-				<li class="element">
-					<img src="image/postdam.jpg" alt="Кораллы" class="element__image">
-					<button class="element__btn-delete" aria-label="delete" type="button"></button>
-					<div class="element__heading">
-						<h2 class="element__title">Потсдам, Германия</h2>
-						<button class="element__btn-like" aria-label="like" type="button"></button>
-					</div>
-				</li>
-				<li class="element">
-					<img src="image/iceland.jpg" alt="Рука, держащая компас, на заднем фоне пляж" class="element__image">
-					<button class="element__btn-delete" aria-label="delete" type="button"></button>
-					<div class="element__heading">
-						<h2 class="element__title">Исландия</h2>
-						<button class="element__btn-like" aria-label="like" type="button"></button>
-					</div>
-				</li>
-				<li class="element">
-					<img src="image/manta.jpg" alt="Гиганская манта" class="element__image">
-					<button class="element__btn-delete" aria-label="delete" type="button"></button>
-					<div class="element__heading">
-						<h2 class="element__title">Атлантикa</h2>
-						<button class="element__btn-like" aria-label="like" type="button"></button>
-					</div>
-				</li> -->
+				
 			</ul>	
 		</section>
 		
@@ -86,7 +39,7 @@
 		<div class="popup__container">
 			<h3 class="popup__title">Редактировать профиль</h3>
 			<form method="POST" name="popupForm" class="popup__form">
-				<input type="text" placeholder="Имя" name="namePerson" class="popup__field-name">
+				<input type="text" placeholder="Имя" name="namePerson" class="popup__field-name" required>
 				<input type="text" placeholder="О себе" name="jobPerson" class="popup__field-work">
 				<button class="btn-submit" type="submit">Сохранить</button>
 			</form>
@@ -99,7 +52,7 @@
 			<h3 class="popup__title">Новое место</h3>
 			<form method="POST" name="popupFormAdd" class="popup__form">
 				<input type="text" placeholder="Название" name="namePlace" class="popup__field-place">
-				<input type="text" placeholder="Ссылка на картинку" name="imageLink" class="popup__field-link">
+				<input type="url" placeholder="Ссылка на картинку" name="imageLink" class="popup__field-link" required>
 				<button class="btn-submit" type="submit">Сохранить</button>
 			</form>
 			<button class="popup__close" aria-label="Close" type="button"></button>
@@ -108,7 +61,7 @@
 
 	<template id="card">
 		<li class="element">
-			<img src="#" alt="фотография с места события" class="element__image">
+			<img src="#" alt="#" class="element__image">
 			<button class="element__btn-delete" aria-label="delete" type="button"></button>
 			<div class="element__heading">
 				<h2 class="element__title"></h2>
@@ -117,11 +70,11 @@
 		</li>
 	</template>
 
-	<div class="cardspop">
-		<div class="cardspop__container">
-			<button class="btn-close" aria-label="Close" type="button" ></button>
-			<img src="#" alt="фотография с места события" class="cardspop__image">
-			<h2 class="cardspop__title"></h2>
+	<div class="popup popup_imgcard">
+		<div class="popup__content">
+			<button class="popup__close" aria-label="Close" type="button"></button>
+			<img src="#" alt="#" class="popup__image">
+			<h2 class="popup__subtitle"></h2>
 		</div>
 	</div>
 

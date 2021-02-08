@@ -1,4 +1,4 @@
-.cardspop__container{
+.popup__content{
 	display: flex;
 	flex-direction: column;
 	position: relative;
