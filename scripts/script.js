@@ -19,7 +19,6 @@ const fieldPlace = addPopup.querySelector('.popup__field-place');
 const fieldLink = addPopup.querySelector('.popup__field-link');
 const imgPopup = cardsPopup.querySelector('.popup__image');
 const subtitlePopup = cardsPopup.querySelector('.popup__subtitle');
-const btnCloseCardPopup = cardsPopup.querySelector('.popup__close');
 
 const initialCards = [
   {
@@ -49,12 +48,11 @@ const initialCards = [
 ];
 
 function giveValue() {
-  nameInput.value = profTitle.textContent; 
-	jobInput.value = profSubitle.textContent; 
+  nameInput.value = profTitle.textContent;
+  jobInput.value = profSubitle.textContent; 
 }
 
 function showPopup(popup){
-	giveValue();
   popup.classList.add('popup_opened');
 }
 
@@ -102,9 +100,7 @@ function addCards (placeValue, linkValue) {
     subtitlePopup.textContent = placeValue;
     imgPopup.alt = placeValue;
     
-    showPopup(cardsPopup);
-    btnCloseCardPopup.classList.add('popup__close_cards');
-    
+    showPopup(cardsPopup);    
   });
 
   return cardElement;
@@ -120,7 +116,7 @@ addPopup.addEventListener('submit', function (evt) {
   fieldLink.value = '';
 });
 
-openButton.addEventListener('click', () => {showPopup(editProfilPopup)});
+openButton.addEventListener('click', () => {giveValue(), showPopup(editProfilPopup)});
 addButton.addEventListener('click', () => {showPopup(addPopup)});
 formSubmitProfil.addEventListener('submit', submitProfileForm); 
 editProfilPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(editProfilPopup)});
