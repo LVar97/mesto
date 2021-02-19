@@ -3,5 +3,10 @@
 	justify-content: space-between;
 	justify-items: center;
 
-	padding: 25px 15px 31px 21px;
+	/* padding: 25px 15px 31px 21px; */
+
+	position: absolute;
+	left: 21px;
+	bottom: 31px;
+	right: 30px;
 }

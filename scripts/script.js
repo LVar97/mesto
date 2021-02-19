@@ -1,7 +1,7 @@
-const editProfilPopup = document.querySelector('.popup');
+const editProfilPopup = document.querySelector('.popup_edit');
 const openButton = document.querySelector('.profile__btn-edit');
 
-const formSubmitProfil = document.querySelector('.popup__container');
+const formSubmitProfil = editProfilPopup.querySelector('.popup__container');
 const nameInput = document.querySelector('.popup__field-name');
 const jobInput = document.querySelector('.popup__field-work');
 const profTitle = document.querySelector('.profile__title');
@@ -19,6 +19,9 @@ const fieldPlace = addPopup.querySelector('.popup__field-place');
 const fieldLink = addPopup.querySelector('.popup__field-link');
 const imgPopup = cardsPopup.querySelector('.popup__image');
 const subtitlePopup = cardsPopup.querySelector('.popup__subtitle');
+
+const ESC_CODE = 'Escape';
+const btnSubmitImage = addPopup.querySelector('.btn-submit');
 
 const initialCards = [
   {
@@ -54,12 +57,12 @@ function giveValue() {
 
 function showPopup(popup){
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => {keyHandler(evt, popup)});
+  document.addEventListener('keydown', keyHandler);
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', (evt) => {keyHandler(evt, popup)});
+  document.removeEventListener('keydown', keyHandler);
 }
 
 function submitProfileForm (evt) {
@@ -76,17 +79,18 @@ function cloneTemplate(el){
 
 initialCards.forEach(function (element) {
 
-  listElement.append(addCards( element.name, element.link));
+  listElement.append(createCard( element.name, element.link));
   
 });
 
-function addCards (placeValue, linkValue) {
+function createCard (placeValue, linkValue) {
 
   const cardElement = cloneTemplate(cardTemplate);
-
-  cardElement.querySelector('.element__image').src = linkValue;
+  const imageElement = cardElement.querySelector('.element__image');
+  imageElement.src = linkValue;
+  imageElement.alt = placeValue;
   cardElement.querySelector('.element__title').textContent = placeValue;
-  cardElement.querySelector('.element__image').alt = placeValue;
+  
 
   cardElement.querySelector('.element__btn-like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__btn-like_active');
@@ -97,7 +101,7 @@ function addCards (placeValue, linkValue) {
     listItem.remove();
   });
   
-  cardElement.querySelector('.element__image').addEventListener('click', function(){
+  imageElement.addEventListener('click', function(){
     imgPopup.src = linkValue;
     subtitlePopup.textContent = placeValue;
     imgPopup.alt = placeValue;
@@ -111,12 +115,19 @@ function addCards (placeValue, linkValue) {
 addPopup.addEventListener('submit', function (evt) {
   evt.preventDefault(); 
 
-  listElement.prepend(addCards(fieldPlace.value, fieldLink.value));
+  listElement.prepend(createCard(fieldPlace.value, fieldLink.value));
   closePopup(addPopup);
 
+  disabledBtnSubmitImage();
+  
   fieldPlace.value = '';
   fieldLink.value = '';
 });
+
+function disabledBtnSubmitImage() {
+  btnSubmitImage.setAttribute('disabled', true);
+  btnSubmitImage.classList.add('btn-submit_disabled');
+}
 
 function clickOverlay (evt, popup){
   if (evt.target.classList.contains('popup')) {
@@ -124,12 +135,12 @@ function clickOverlay (evt, popup){
   } 
 }
 
-function keyHandler(evt, popup){
-
-  if (evt.key === "Escape"){
-    closePopup(popup);
+function keyHandler(evt){
+  if (evt.key === ESC_CODE){
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
-}
+} 
 
 openButton.addEventListener('click', () => {giveValue(), showPopup(editProfilPopup)});
 addButton.addEventListener('click', () => {showPopup(addPopup)});
