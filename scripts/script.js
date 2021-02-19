@@ -54,18 +54,20 @@ function giveValue() {
 
 function showPopup(popup){
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', (evt) => {keyHandler(evt, popup)});
 }
 
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', (evt) => {keyHandler(evt, popup)});
 }
 
 function submitProfileForm (evt) {
-		evt.preventDefault(); 
-		
-		profTitle.textContent = nameInput.value; 
-		profSubitle.textContent = jobInput.value; 
-		closePopup(editProfilPopup);
+  evt.preventDefault(); 
+  
+  profTitle.textContent = nameInput.value; 
+  profSubitle.textContent = jobInput.value; 
+  closePopup(editProfilPopup);
 }
 
 function cloneTemplate(el){
@@ -116,9 +118,26 @@ addPopup.addEventListener('submit', function (evt) {
   fieldLink.value = '';
 });
 
+function clickOverlay (evt, popup){
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popup);
+  } 
+}
+
+function keyHandler(evt, popup){
+
+  if (evt.key === "Escape"){
+    closePopup(popup);
+  }
+}
+
 openButton.addEventListener('click', () => {giveValue(), showPopup(editProfilPopup)});
 addButton.addEventListener('click', () => {showPopup(addPopup)});
 formSubmitProfil.addEventListener('submit', submitProfileForm); 
 editProfilPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(editProfilPopup)});
 addPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(addPopup)});
 cardsPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(cardsPopup)});
+
+editProfilPopup.addEventListener('click', (evt) => {clickOverlay(evt, editProfilPopup)});
+addPopup.addEventListener('click', (evt) => {clickOverlay(evt, addPopup)});
+cardsPopup.addEventListener('click', (evt) => {clickOverlay(evt, cardsPopup)});
