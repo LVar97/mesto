@@ -62,7 +62,7 @@ const setEventListeners = (formElement, configObj) => {
 	});
 }
 
-function enableValidation() {
+function enableValidation(configObj) {
 	const formList = Array.from(document.querySelectorAll(configObj.formElement));
   formList.forEach((formElement) => {
 		formElement.addEventListener('submit', (evt) => {
