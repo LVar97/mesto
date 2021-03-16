@@ -39,7 +39,7 @@
 		<div class="popup__container">
 			<h3 class="popup__title">Редактировать профиль</h3>
 			<form method="POST" name="popupForm" class="popup__form" novalidate>
-				<input id="name-input" type="text" placeholder="Имя" name="namePerson" class="popup__field-name popup-input" required minlength="2" maxlength="40">
+				<input id="name-input" type="text" placeholder="Имя" name="namePerson" class="popup__field-name popup-input " required minlength="2" maxlength="40">
 				<span class="name-input-error popup__input-error"></span>
 				<input id="job-input" type="text" placeholder="О себе" name="jobPerson" class="popup__field-work popup-input" required minlength="2" maxlength="200">
 				<span class="job-input-error popup__input-error"></span>
@@ -82,7 +82,8 @@
 		</div>
 	</div>
 
-	<script src="scripts/script.js"></script>
-	<script src="scripts/validate.js"></script>
+	<script type="module" src="scripts/index.js"></script>
+	<script type="module" src="scripts/card.js"></script>
+	<script type="module" src="scripts/FormValidator.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+import { Card, renderCard} from './card.js'; 
+import { FormValidator, enableValidation } from './FormValidator.js'; 
+
 const editProfilPopup = document.querySelector('.popup_edit');
 const openButton = document.querySelector('.profile__btn-edit');
 
@@ -9,19 +12,18 @@ const profSubitle = document.querySelector('.profile__subtitle');
 
 const addButton = document.querySelector('.profile__btn-add');
 const addPopup = document.querySelector('.popup_add');
-
-const cardsPopup = document.querySelector('.popup_imgcard');
-// получаем эл куда будем вставлять
-const listElement = document.querySelector('.elements__list'); 
-// получаем ЧТО будем вставлять - саму карточку
-const cardTemplate = document.querySelector('#card').content; 
 const fieldPlace = addPopup.querySelector('.popup__field-place');
 const fieldLink = addPopup.querySelector('.popup__field-link');
-const imgPopup = cardsPopup.querySelector('.popup__image');
-const subtitlePopup = cardsPopup.querySelector('.popup__subtitle');
-
+const elementList = document.querySelector('.elements__list');
 const ESC_CODE = 'Escape';
-const btnSubmitImage = addPopup.querySelector('.btn-submit');
+
+const configObj = {
+  inputElement: '.popup-input',
+  submitButtonSelector: '.btn-submit',
+  inactiveButtonClass: 'btn-submit_disabled',
+  inputErrorClass: 'popup__form_error',
+  errorClass: 'form__input-error_active'
+};
 
 const initialCards = [
   {
@@ -57,6 +59,7 @@ function giveValue() {
 
 function showPopup(popup){
   popup.classList.add('popup_opened');
+	enableValid(configObj);
   document.addEventListener('keydown', keyHandler);
 }
 
@@ -65,69 +68,40 @@ function closePopup (popup) {
   document.removeEventListener('keydown', keyHandler);
 }
 
+function renderCards(){
+	initialCards.forEach((item) => {
+		const cardElement = renderCard('#card', '.element', item.name, item.link);
+		elementList.append(cardElement);
+	})
+	
+};
+renderCards();
+
 function submitProfileForm (evt) {
   evt.preventDefault(); 
-  
+
   profTitle.textContent = nameInput.value; 
   profSubitle.textContent = jobInput.value; 
   closePopup(editProfilPopup);
 }
 
-function cloneTemplate(el){
-  return el.querySelector('.element').cloneNode(true);
-}
-
-initialCards.forEach(function (element) {
-
-  listElement.append(createCard( element.name, element.link));
-  
-});
-
-function createCard (placeValue, linkValue) {
-
-  const cardElement = cloneTemplate(cardTemplate);
-  const imageElement = cardElement.querySelector('.element__image');
-  imageElement.src = linkValue;
-  imageElement.alt = placeValue;
-  cardElement.querySelector('.element__title').textContent = placeValue;
-  
-
-  cardElement.querySelector('.element__btn-like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__btn-like_active');
-  });
-
-  cardElement.querySelector('.element__btn-delete').addEventListener('click', function () {
-    const listItem = cardElement.querySelector('.element__btn-delete').closest('.element');
-    listItem.remove();
-  });
-  
-  imageElement.addEventListener('click', function(){
-    imgPopup.src = linkValue;
-    subtitlePopup.textContent = placeValue;
-    imgPopup.alt = placeValue;
-    
-    showPopup(cardsPopup);    
-  });
-
-  return cardElement;
+function enableValid(){
+	const formList = Array.from(document.querySelectorAll('.popup__form'));
+	formList.forEach((el) => {
+		enableValidation(configObj,el);
+	});
 }
 
 addPopup.addEventListener('submit', function (evt) {
   evt.preventDefault(); 
-
-  listElement.prepend(createCard(fieldPlace.value, fieldLink.value));
+	
+  elementList.prepend(renderCard('#card', '.element', fieldPlace.value, fieldLink.value));
+	
   closePopup(addPopup);
-
-  disabledBtnSubmitImage();
   
   fieldPlace.value = '';
   fieldLink.value = '';
 });
-
-function disabledBtnSubmitImage() {
-  btnSubmitImage.setAttribute('disabled', true);
-  btnSubmitImage.classList.add('btn-submit_disabled');
-}
 
 function clickOverlay (evt, popup){
   if (evt.target.classList.contains('popup')) {
@@ -147,8 +121,5 @@ addButton.addEventListener('click', () => {showPopup(addPopup)});
 formSubmitProfil.addEventListener('submit', submitProfileForm); 
 editProfilPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(editProfilPopup)});
 addPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(addPopup)});
-cardsPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(cardsPopup)});
-
 editProfilPopup.addEventListener('click', (evt) => {clickOverlay(evt, editProfilPopup)});
 addPopup.addEventListener('click', (evt) => {clickOverlay(evt, addPopup)});
-cardsPopup.addEventListener('click', (evt) => {clickOverlay(evt, cardsPopup)});
