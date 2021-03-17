@@ -9,7 +9,7 @@ export class FormValidator{
 		this._form = form
 	}
 
-	setEventListeners(){
+	_setEventListeners(){
 		
 		this._inputList = Array.from(this._form.querySelectorAll(this._input));
 
@@ -63,11 +63,9 @@ export class FormValidator{
 		errorElement.textContent = '';
 	}
 
-}
+	enableValidation(){
 
-export function enableValidation(config, el){
-
-	const form = new FormValidator(config, el);
-	form.setEventListeners();
-	
+		this._setEventListeners();
+		
+	}
 }
