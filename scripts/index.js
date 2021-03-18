@@ -70,14 +70,14 @@ function closePopup (popup) {
   document.removeEventListener('keydown', keyHandler);
 }
 
-function  renderCards(template, el, name, link, handleCardClick, closePopup, clickOverlay, keyHandler){
-	const card = new Card(template, el, name, link, handleCardClick, closePopup, clickOverlay, keyHandler);
+function  renderCards(template, el, name, link, handleCardClick){
+	const card = new Card(template, el, name, link, handleCardClick);
 	const cardElement = card.generateCard();
 	return cardElement
 }
 
 initialCards.forEach((item) => {
-	const cardElement = renderCards('#card', '.element', item.name, item.link, handleCardClick, closePopup, clickOverlay, keyHandler);
+	const cardElement = renderCards('#card', '.element', item.name, item.link, handleCardClick);
 	elementList.append(cardElement);
 })
 
@@ -102,7 +102,7 @@ enableValid(configObj);
 addPopup.addEventListener('submit', function (evt) {
   evt.preventDefault(); 
 	
-  elementList.prepend(renderCards('#card', '.element', fieldPlace.value, fieldLink.value, handleCardClick, closePopup, clickOverlay, keyHandler));
+  elementList.prepend(renderCards('#card', '.element', fieldPlace.value, fieldLink.value, handleCardClick));
 	
   closePopup(addPopup);
   
@@ -143,5 +143,3 @@ function handleCardClick(name, link) {
 openButton.addEventListener('click', () => {giveValue(), showPopup(editProfilPopup)});
 addButton.addEventListener('click', () => {showPopup(addPopup)});
 formSubmitProfil.addEventListener('submit', submitProfileForm); 
-editProfilPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(editProfilPopup)});
-addPopup.querySelector('.popup__close').addEventListener('click', () => {closePopup(addPopup)});
