@@ -1,6 +1,3 @@
-const cardsPopup = document.querySelector('.popup_imgcard');
-
-
 export class Card {
   constructor(template, el, name, link, handleCardClick){
     this._template = template;
@@ -9,9 +6,6 @@ export class Card {
     this._name = name;
 
 		this._handleCardClick = handleCardClick;
-		// this._closePopup = closePopup;
-		// this._clickOverlay = clickOverlay;
-		// this._keyHandler = keyHandler;
   }
 
   _cloneTemplate(){
@@ -52,10 +46,5 @@ export class Card {
       this._handleCardClick(this._name, this._link);
     });
 
-		// this._clickOverlay();
-		
-		// cardsPopup.querySelector('.popup__close').addEventListener('click', () => {this._closePopup(cardsPopup)});
-		// cardsPopup.addEventListener('click', (evt) => {this._keyHandler(evt, cardsPopup)});
 	}
-	
 }
