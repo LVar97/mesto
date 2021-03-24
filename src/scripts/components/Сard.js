@@ -1,4 +1,6 @@
-export class Card {
+import {cardsPopup} from '../utils/constants.js';
+
+export default class Card {
   constructor(template, el, name, link, handleCardClick){
     this._template = template;
 		this._el = el;
@@ -20,7 +22,6 @@ export class Card {
 
 	generateCard(){
 		this._element = this._cloneTemplate(this._temlate, this._el);
-		
 		this._cardImage = this._element.querySelector('.element__image');
 		this._setEventListeners();
 		this._cardImage.src = this._link;
@@ -43,7 +44,7 @@ export class Card {
 		});
 
 		this._cardImage.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link);
+      this._handleCardClick(this._name, this._link, cardsPopup);
     });
 
 	}
