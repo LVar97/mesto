@@ -18,7 +18,7 @@ export default class FormValidator{
 		this._inputList.forEach((el) => {
 			el.addEventListener('input',  () => {
 				this.checkInputValidity(el);
-				this.setSubmitButtonState(this._inputList, this._buttonElement);
+				this.setSubmitButtonState();
 			});
 		});
 
@@ -27,17 +27,17 @@ export default class FormValidator{
 		});
 	}
 
-	setSubmitButtonState(list, button){
-		const hasNotValidInput = list.some(
+	setSubmitButtonState(){
+		const hasNotValidInput = 	this._inputList.some(
 			
 			(el) => !el.validity.valid
 		);
 		if (hasNotValidInput) {
-			button.setAttribute('disabled', true);
-			button.classList.add(this._inactiveBtn);
+			this._buttonElement.setAttribute('disabled', true);
+			this._buttonElement.classList.add(this._inactiveBtn);
 		}else{
-			button.removeAttribute('disabled');
-			button.classList.remove(this._inactiveBtn);
+			this._buttonElement.removeAttribute('disabled');
+			this._buttonElement.classList.remove(this._inactiveBtn);
 		}
 	}
 

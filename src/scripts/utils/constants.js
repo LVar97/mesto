@@ -1,10 +1,7 @@
 export const editProfilPopup = document.querySelector('.popup_edit');
 export const openButton = document.querySelector('.profile__btn-edit');
 export const cardsPopup = document.querySelector('.popup_imgcard');
-export const imgPopup = cardsPopup.querySelector('.popup__image');
-export const subtitlePopup = cardsPopup.querySelector('.popup__subtitle');
 
-export const formSubmitProfil = editProfilPopup.querySelector('.popup__container');
 export const nameInput = document.querySelector('.popup__field-name');
 export const jobInput = document.querySelector('.popup__field-work');
 export const profTitle = document.querySelector('.profile__title');

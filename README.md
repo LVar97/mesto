@@ -13,5 +13,10 @@
 * Grid
 * JS
 * Адаптивная верстка 
+* ООП 
+* Деструктуризация
+* Webpack 
+* Babel 
+
 
 Ссылка на проект: https://lvar97.github.io/mesto/index.html

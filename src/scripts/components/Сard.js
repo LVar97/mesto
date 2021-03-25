@@ -1,5 +1,3 @@
-import {cardsPopup} from '../utils/constants.js';
-
 export default class Card {
   constructor(template, el, name, link, handleCardClick){
     this._template = template;
@@ -44,7 +42,7 @@ export default class Card {
 		});
 
 		this._cardImage.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link, cardsPopup);
+      this._handleCardClick(this._name, this._link);
     });
 
 	}
