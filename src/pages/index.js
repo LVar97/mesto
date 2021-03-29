@@ -14,12 +14,13 @@ import UserInfo from '../scripts/components/UserInfo.js';
 const validFormProfil = new FormValidator(configObj, editProfilPopup.querySelector('.popup__form'));
 const validFormAddImg = new FormValidator(configObj, addPopup.querySelector('.popup__form'));
 const user = new UserInfo(profTitle, profSubitle);
+const userInfo = user.getUserInfo();
 const popupImg = new PopupWithImage(cardsPopup);
 
 const cardsList = new Section({
   item: initialCards,
   renderer: (cardItem) => {
-    const card =  new Card('#card', '.element', cardItem.name, cardItem.link, handleCardClick);
+    const card =  new Card('#card', '.element', cardItem, handleCardClick);
     const cardElement = card.generateCard();
     cardsList.addItem(cardElement);
   }
@@ -29,7 +30,7 @@ const cardsList = new Section({
 const formImg = new PopupWithForm(
   addPopup, 
   {submitForm: (formData) => {
-    const card =  new Card('#card', '.element', formData.namePlace, formData.imageLink, handleCardClick);
+    const card =  new Card('#card', '.element', formData, handleCardClick);
     const cardElement = card.generateCard();
     elementList.prepend(cardElement);
     
@@ -45,7 +46,6 @@ const formProfil = new PopupWithForm(
 );
 
 function handleCardClick (name, link) {
-  console.log(name, link)
   popupImg.open(name, link);
 }
 
@@ -56,10 +56,11 @@ validFormAddImg.enableValidation();
 cardsList.renderItems(); 
 formImg.setEventListeners();
 formProfil.setEventListeners();
+popupImg.setEventListeners();
 
 addButton.addEventListener('click', () => {formImg.open(), validFormAddImg.setSubmitButtonState()});
 openButton.addEventListener('click', () => { 
-  nameInput.value = user.getUserInfo().name,
-  jobInput.value = user.getUserInfo().job ,
+  nameInput.value = userInfo.name,
+  jobInput.value = userInfo.job ,
   formProfil.open()
 });
