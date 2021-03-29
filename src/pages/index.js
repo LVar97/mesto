@@ -14,7 +14,6 @@ import UserInfo from '../scripts/components/UserInfo.js';
 const validFormProfil = new FormValidator(configObj, editProfilPopup.querySelector('.popup__form'));
 const validFormAddImg = new FormValidator(configObj, addPopup.querySelector('.popup__form'));
 const user = new UserInfo(profTitle, profSubitle);
-const userInfo = user.getUserInfo();
 const popupImg = new PopupWithImage(cardsPopup);
 
 const cardsList = new Section({
@@ -60,6 +59,7 @@ popupImg.setEventListeners();
 
 addButton.addEventListener('click', () => {formImg.open(), validFormAddImg.setSubmitButtonState()});
 openButton.addEventListener('click', () => { 
+  const userInfo = user.getUserInfo();
   nameInput.value = userInfo.name,
   jobInput.value = userInfo.job ,
   formProfil.open()
