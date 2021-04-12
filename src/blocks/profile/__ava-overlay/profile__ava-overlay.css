@@ -1,0 +1,24 @@
+.profile__ava-overlay{
+	width: 120px;
+	min-height: 120px;
+	object-fit: cover;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.profile__ava-overlay:hover{
+	/* background: rgba(0, 0, 0, 0.8); */
+	background: url('../../../image/big-pencil.svg') rgba(0, 0, 0, 0.8);
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	z-index: 54;
+
+}
+
+@media all and (max-width: 895px){
+	.profile__ava-overlay{
+		margin: 0 auto;
+		
+	}
+}

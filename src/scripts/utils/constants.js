@@ -14,6 +14,12 @@ export const fieldLink = addPopup.querySelector('.popup__field-link');
 export const elementList = document.querySelector('.elements__list');
 export const ESC_CODE = 'Escape';
 
+export const avatarPopup = document.querySelector('.popup_avatar');
+export const imgAvatar = document.querySelector('.profile__avatar');
+export const avatarEdit = document.querySelector('.profile__ava-overlay');
+
+export const popupDelete = document.querySelector('.popup_delete');
+
 export const configObj = {
   inputElement: '.popup-input',
   submitButtonSelector: '.btn-submit',

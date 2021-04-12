@@ -1,0 +1,19 @@
+.popup__field-avatar{
+	width: 358px;
+	min-height: 27px;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	margin: 0 auto 48px;
+	padding: 0;
+
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+}
+
+@media all and (max-width: 895px){
+	.popup__field-link{
+		width: 238px;
+		margin: 0 auto 45px;
+	}
+}

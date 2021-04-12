@@ -1,0 +1,13 @@
+.element__likes{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 16px;
+	text-align: center;
+
+	color: #000000;
+}

@@ -4,6 +4,7 @@
 	margin: 0 auto;
 	align-items: center;
 	padding: 40px 0 51px;
+	position: relative;
 }
 
 @media all and (max-width: 895px){
