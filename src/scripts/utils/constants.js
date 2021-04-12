@@ -20,6 +20,8 @@ export const avatarEdit = document.querySelector('.profile__ava-overlay');
 
 export const popupDelete = document.querySelector('.popup_delete');
 
+export const userId = "68ed20b588d89a39c2171f9c";
+
 export const configObj = {
   inputElement: '.popup-input',
   submitButtonSelector: '.btn-submit',

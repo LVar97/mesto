@@ -14,8 +14,6 @@ export default class PopupWithForm extends Popup{
 
 		this._inputList.forEach(input => {
 			this._formValues[input.name] = input.value;
-			this._formValues.likes = [];
-			this._formValues.owner= {_id : '68ed20b588d89a39c2171f9c'}
 		});
 		
 		return this._formValues;
@@ -28,7 +26,6 @@ export default class PopupWithForm extends Popup{
 			evt.preventDefault(); 
 			this.renderLoading(true);
 			this._submitForm(this._getInputValues())
-			setTimeout(() => {this.renderLoading(false)}, 2000);
 		})
 	}
 

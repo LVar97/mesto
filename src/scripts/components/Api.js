@@ -1,51 +1,46 @@
+const handleResponse = (res) => {
+  if (!res.ok) {
+    return Promise.reject(`Error: ${res.status}`);
+  }
+  return res.json();
+}
+
 export default class Api{
 	constructor(options){
 		this._url = options.baseUrl;
 		this._token = options.token;
 	}
 
-	fetchCARDRender (url, list){
-		fetch( this._url+url , {
+	fetchCARDRender (url){
+		return fetch( this._url+url , {
 		headers: {
 			authorization: this._token
 		}
 	})
-	.then((res) =>  {
-		if (res.ok) {
-			return res.json();
-		}
-		return Promise.reject(`Ошибка: ${res.status}`);
-	})
+	.then(handleResponse)
 	.then((result) => {
-		list.renderItems(result)
+		return result
 	})
 	.catch((err) => {console.log(err)})
 	}
 
 
-	fetchUserInfo (url, user){
-		fetch(this._url+url, {
+	fetchUserInfo (url){
+		return fetch(this._url+url, {
 		headers: {
 			authorization: this._token
 		}
 		})
-		.then((res) =>  {
-			if (res.ok) {
-				return res.json();
-			}else{
-			return Promise.reject(`Ошибка: ${res.status}`);
-		}
-		})
+		.then(handleResponse)
 		.then((result) => {
-			user.setUserInfo(result);
-			user.setUserAvatar(result);
+			return result
 		})
 		.catch((err) => {console.log(err)})
 
 	}
 
 	fetchSaveDataUserInfo(url, user){
-		fetch(this._url+url, {
+		return fetch(this._url+url, {
 			method: 'PATCH',
 			headers: {
 				authorization: this._token,
@@ -54,12 +49,7 @@ export default class Api{
 			body:JSON.stringify( user.getUserInfo())
 			
 		})
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(`Ошибка: ${res.status}`);
-		})
+		.then(handleResponse)
 		.catch((err) => {
 			console.log(err); 
 		});
@@ -67,7 +57,7 @@ export default class Api{
 
 	fetcAddhNewCard(url, data){
 		
-		fetch(this._url+url, {
+		return fetch(this._url+url, {
 			method: 'POST',
 			headers: {
 				authorization: this._token,
@@ -77,12 +67,8 @@ export default class Api{
 				data
 			)	
 		})
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(`Ошибка: ${res.status}`);
-		})
+		.then(handleResponse)
+		.then(data => {return data})
 		.catch((err) => {
 			console.log(err); 
 		});
@@ -90,64 +76,50 @@ export default class Api{
 
 
 	fetchDeleteCard(url, id){
-		fetch(this._url+url+'/'+id, {
+		return fetch(this._url+url+'/'+id, {
 			method: 'DELETE',
 			headers: {
 				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
 		})
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(`Ошибка: ${res.status}`);
-		})
+		.then(handleResponse)
 		.catch((err) => {
 			console.log(err); 
 		});
 	}
 
 	fetchAddLike(url, like, id){
-		fetch(this._url+url+'/'+ like +id, {
+		console.log(url, like, id)
+		return fetch(this._url+url+'/'+ like +id, {
 			method: 'PUT',
 			headers: {
 				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
 		})
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(`Ошибка: ${res.status}`);
-		})
+		.then(handleResponse)
 		.catch((err) => {
 			console.log(err); 
 		});
 	}
 
 	fetchDeleteLike(url, like, id){
-		fetch(this._url+url+'/'+ like +id, {
+		return fetch(this._url+url+'/'+ like +id, {
 			method: 'DELETE',
 			headers: {
 				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
 		})
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(`Ошибка: ${res.status}`);
-		})
+		.then(handleResponse)
 		.catch((err) => {
 			console.log(err); 
 		});
 	}
 
 	fetchChangeAvatar(url, avatar, data ){
-		fetch(this._url + url + avatar, {
+		return fetch(this._url + url + avatar, {
 			method: 'PATCH',
 			headers: {
 				authorization: this._token,
@@ -157,14 +129,12 @@ export default class Api{
 				{avatar: data.avatar }
 			)
 		})
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(`Ошибка: ${res.status}`);
-		})
+		.then(handleResponse)
+		.then(userAvatar => {
+			return userAvatar;
+	 	})
 		.catch((err) => {
 			console.log(err); 
-		}); 
+		});
 	}
 }
