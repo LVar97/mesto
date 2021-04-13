@@ -39,14 +39,14 @@ export default class Api{
 
 	}
 
-	fetchSaveDataUserInfo(url, user){
+	fetchSaveDataUserInfo(url, data){
 		return fetch(this._url+url, {
 			method: 'PATCH',
 			headers: {
 				authorization: this._token,
 				'Content-Type': 'application/json'
 			},
-			body:JSON.stringify( user.getUserInfo())
+			body:JSON.stringify(data)
 			
 		})
 		.then(handleResponse)

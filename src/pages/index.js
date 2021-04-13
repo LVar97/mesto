@@ -45,7 +45,7 @@ const formImg = new PopupWithForm(
 const formProfil = new PopupWithForm(
   editProfilPopup, 
   {submitForm: (formData) => {
-    api.fetchSaveDataUserInfo('users/me', user)
+    api.fetchSaveDataUserInfo('users/me', formData)
     .then(() => {
       user.setUserInfo(formData);
       formProfil.renderLoading(false);
@@ -95,10 +95,11 @@ function handleDeleteCard(id, popup){
       api.fetchDeleteCard('cards', id)
       .then(()=>{
         formDelete.renderLoading(false);
+        const listItem = popup.querySelector('.element__btn-delete').closest('.element');
+        listItem.remove();
         formDelete.close();
       })
-      const listItem = popup.querySelector('.element__btn-delete').closest('.element');
-      listItem.remove();
+      
     }}
   );
   formDelete.open();
