@@ -32,12 +32,11 @@ const formImg = new PopupWithForm(
   addPopup, 
   {submitForm: (formData) => {
     api.fetcAddhNewCard('cards', formData)
-    .then(() => {
-    api.fetchCARDRender('cards')
-    .then((initialCards) => {
-      document.querySelector('.elements__list').innerHTML = '';
-      cardsList.renderItems(initialCards)});
-      formImg.renderLoading(false);
+    .then((result) => {
+      const card =  new Card('#card', '.element', result, handleCardClick, handleDeleteCard);
+      const cardElement = card.generateCard();
+      elementList.prepend(cardElement);
+      formImg.renderLoading(false)
       formImg.close();
     })
   }}
@@ -46,9 +45,9 @@ const formImg = new PopupWithForm(
 const formProfil = new PopupWithForm(
   editProfilPopup, 
   {submitForm: (formData) => {
-    user.setUserInfo(formData);
     api.fetchSaveDataUserInfo('users/me', user)
     .then(() => {
+      user.setUserInfo(formData);
       formProfil.renderLoading(false);
       formProfil.close();
     })
@@ -93,11 +92,10 @@ function handleDeleteCard(id, popup){
   const formDelete = new PopupWithForm(
     popupDelete,
     {submitForm: () => {
-      formDelete.close();
       api.fetchDeleteCard('cards', id)
       .then(()=>{
         formDelete.renderLoading(false);
-        
+        formDelete.close();
       })
       const listItem = popup.querySelector('.element__btn-delete').closest('.element');
       listItem.remove();
